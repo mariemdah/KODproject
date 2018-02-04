@@ -1,16 +1,26 @@
 <div class="row" style="margin-top: 50px">
+    {% if error %}
+        <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-default fade in">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        </div>
+    {% endif %}
     <div class="col-md-4 col-md-offset-4 col-sm-6 col-xs-12">
         <div class="panel panel-default formPanel">
             <div class="panel-heading bg-color-1 border-color-1">
-                <h3 class="panel-title">Allready Registered?</h3>
+                <h3 class="panel-title">Deja inscrit?</h3>
             </div>
             <div class="panel-body">
-                <form role="form" action="#" method="POST">
+                <form role="form" action="{{ path('fos_user_security_check') }}" method="POST">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
                     <div class="form-group formField">
-                        <input class="form-control" name="_email" type="text" placeholder="Email">
+                        <input class="form-control" name="_username" type="text" placeholder="Adresse email ou Pseudo">
                     </div>
                     <div class="form-group formField">
-                        <input class="form-control" type="password" name="_password" placeholder="Mot de passe">
+                        <input class="form-control" name="_password" type="password" placeholder="Mot de passe">
                     </div>
                     <div class="form-group formField">
                         <input type="checkbox" checked class="check" id="remember_me" name="_remember_me" value="on" />
