@@ -1,0 +1,3 @@
+child_homepage:
+    path:     /
+    defaults: { _controller: ChildBundle:Default:index }

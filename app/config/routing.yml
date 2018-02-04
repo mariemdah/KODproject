@@ -1,0 +1,26 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+events:
+    resource: "@EventsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+child:
+    resource: "@ChildBundle/Resources/config/routing.yml"
+    prefix:   /
+
+parenting:
+    resource: "@ParentingBundle/Resources/config/routing.yml"
+    prefix:   /
+
+shop:
+    resource: "@ShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
+media:
+    resource: "@MediaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
