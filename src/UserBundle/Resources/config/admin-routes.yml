@@ -1,0 +1,31 @@
+admin_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Admin:index }
+
+users_list:
+    path:     /users/list
+    defaults: { _controller: UserBundle:Admin:listUsers }
+
+users_add:
+    path:     /users/add
+    defaults: { _controller: UserBundle:Admin:addUser }
+
+users_del:
+    path:     /users/del/{id}
+    defaults: { _controller: UserBundle:Admin: }
+    requirements :
+        id : /d{1,5}
+
+users_disable:
+    path:     /users/del/{id}
+    defaults: { _controller: UserBundle:Admin:addUser }
+    requirements :
+        id : /d{1,5}
+
+users_blk_delete:
+    path:     /users/del
+    defaults: { _controller: UserBundle:Admin:usersBulkDelete }
+
+users_blk_disable:
+    path:     /users/del
+    defaults: { _controller: UserBundle:Admin:usersBulkDisable }
