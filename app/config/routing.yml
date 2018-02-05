@@ -2,6 +2,10 @@ user:
     resource: "@UserBundle/Resources/config/routing.yml"
     prefix:   /
 
+admin:
+    resource: "@UserBundle/Resources/config/admin-routes.yml"
+    prefix:   /admin
+
 events:
     resource: "@EventsBundle/Resources/config/routing.yml"
     prefix:   /
