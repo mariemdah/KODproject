@@ -12,20 +12,20 @@ users_add:
 
 users_del:
     path:     /users/del/{id}
-    defaults: { _controller: UserBundle:Admin: }
+    defaults: { _controller: UserBundle:Admin:deleteUser }
     requirements :
         id : /d{1,5}
 
 users_disable:
     path:     /users/del/{id}
-    defaults: { _controller: UserBundle:Admin:addUser }
+    defaults: { _controller: UserBundle:Admin:disableUser }
     requirements :
         id : /d{1,5}
 
 users_blk_delete:
     path:     /users/del
-    defaults: { _controller: UserBundle:Admin:usersBulkDelete }
+    defaults: { _controller: UserBundle:Admin:deleteUsersBulk }
 
 users_blk_disable:
-    path:     /users/del
-    defaults: { _controller: UserBundle:Admin:usersBulkDisable }
+    path:     /users/disable
+    defaults: { _controller: UserBundle:Admin:disableUsersBulk }

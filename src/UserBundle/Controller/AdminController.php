@@ -41,7 +41,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function userDeleteAction($id, Request $request){
+    public function deleteUserAction($id, Request $request){
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('UserBundle:User')->find($id);
         $em->remove($user);
@@ -50,7 +50,7 @@ class AdminController extends Controller
         return $this->redirectToRoute('users_list');
     }
 
-    public function userDisableAction($id, Request $request){
+    public function disableUserAction($id, Request $request){
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository('UserBundle:User')->find($id);
         $user->setEnabled(false);
@@ -59,7 +59,7 @@ class AdminController extends Controller
         return $this->redirectToRoute('users_list');
     }
 
-    public function usersBulkDeleteAction(Request $request){
+    public function deleteUsersBulkAction(Request $request){
         $users = $request->get('users');
         $users = explode(',', $users);
         $em = $this->getDoctrine()->getManager();
@@ -72,7 +72,7 @@ class AdminController extends Controller
         return $this->redirectToRoute('users_list');
     }
 
-    public function usersBulkDisableAction(Request $request){
+    public function disableUsersBulkAction(Request $request){
         $users = $request->get('users');
         $users = explode(',', $users);
         $em = $this->getDoctrine()->getManager();

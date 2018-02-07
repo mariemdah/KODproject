@@ -9,6 +9,7 @@
           content="Responsive, Web Application, HTML5, Admin Template, business, professional, Integral, web design, CSS3">
     <title>KidzLife | Admin</title>
     <!-- Site favicon -->
+    {% block stylesheets %}
     <link rel='shortcut icon' type='image/x-icon' href="{{ asset('img/favicon.ico')}}"/>
     <!-- /site favicon -->
 
@@ -32,7 +33,7 @@
     <link href="{{ asset('plugins/jvectormap/css/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet">
 
     <link href="{{ asset('css/integral-forms.css')}}" rel="stylesheet">
-
+    {% endblock %}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -270,6 +271,15 @@
             <!-- /footer -->
         </div>
         <!-- /main content -->
+    </div>
+    <div class="">
+        {% for label,messages in app.flashes %}
+            {% for message in messages %}
+                <span class="flash-msg" data-type="{{ label }}" style="display : none">
+                        {{ message }}
+                    </span>
+            {% endfor %}
+        {% endfor %}
     </div>
     <!-- /main container -->
 </div>
